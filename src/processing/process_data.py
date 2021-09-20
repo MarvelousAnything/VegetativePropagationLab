@@ -17,5 +17,5 @@ if __name__ == '__main__':
     for k in raw_data:
         avg_root_count = Uncertainty.from_average(raw_data[k].count())
         avg_root_length = Uncertainty.from_average(np.mean(raw_data[k]))
-        processed[k] = [k, avg_root_count.num, avg_root_count.absolute, avg_root_length.num, avg_root_length.absolute]
+        processed[k] = [float(k), avg_root_count.num, avg_root_count.absolute, avg_root_length.num, avg_root_length.absolute]
     a = pd.DataFrame.from_dict(processed, columns=col_names, orient='index').fillna(0)
